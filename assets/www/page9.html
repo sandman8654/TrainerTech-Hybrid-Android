@@ -1,0 +1,46 @@
+<ons-page class="center in" ng-controller="checksession" >
+	<img src="images/trainer_full_white.png" ng-click="ons.slidingMenu.toggleMenu()">
+	<!-- <header>
+		<span class="userfullname">Walter Jordan</span>
+		<div class="navi"><img src="images/menu.png" ng-click="ons.slidingMenu.toggleMenu()"></div>
+		<h1><img src="images/logo-hd.png"></h1>
+	</header> -->
+
+<!-- 	<ons-toolbar class="onstoolbar">
+		<div class="left navigation-bar__title navigation-bar__left cusername t-a-c" >
+			<div class="navi t-a-c" ng-click="ons.slidingMenu.toggleMenu()" ><img src="images/menu.png"></div>	
+		</div>
+		<div class="center navigation-bar__center centerlogoimage t-a-c">
+				<h1><img src="images/trainer_half_white.png"></h1>
+		</div>
+		<div class="right navigation-bar__title navigation-bar__right t-a-c">
+			<span class="userfullname"></span>
+		</div>
+	</ons-toolbar> -->
+
+	<div class="tour"> 
+		<!-- <h1>First Time User</h1> -->
+		<ul id="slidertour" rn-carousel rn-carousel-buffered rn-carousel-indicator rn-carousel-control class="my-slider ng-cloak image" >
+	        <li>
+	        <h1>Daily Fitness Plans</h1>
+	       	Recieved specialized daily workout from a trainer that plans out the exercise you'll be completing that day.
+	       </li>	        
+	        <li>
+	        <h1>Know Your Schedule</h1>
+	        Use the calendar to view your training schedule and get details about your upcoming workouts.
+	        </li>
+	        <li>
+				<h1>Guided Workouts</h1>
+		        Each workout guide you through your specialized exercise plan to record and submit your results to trainer.
+		     </li>
+	        <li>
+	        <h1>Ask For Help</h1>
+	        Use the help desk to directly ask trainer questions about the things like your workout plan, diet, and specific exercise.
+	        </li>	        
+      	</ul>
+      	<!-- <ons-button class="blue" ng-click="ons.slidingMenu.setAbovePage('page4.html')">Get Started</ons-button> -->
+	</div>
+</ons-page>
+<ons-tabbar class="workouttabbar">    
+    <a href="#" class="full blue"  ng-click="ons.slidingMenu.setAbovePage('page4.html')" style="display:block">Get Started</a>    
+</ons-tabbar>

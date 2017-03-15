@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	<script type="text/javascript">
+ 
+ 
+// If you want to prevent dragging, uncomment this section
+/*
+function preventBehavior(e) 
+{ 
+      e.preventDefault(); 
+    };
+document.addEventListener("touchmove", preventBehavior, false);
+*/
+ 
+/* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
+see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
+for more details -jm */
+/*
+function handleOpenURL(url)
+{
+// TODO: do something with the url passed in.
+}
+*/
+ 
+function onBodyLoad()
+{
+document.addEventListener("deviceready", onDeviceReady, false);
+}
+ 
+    function downloadFile(){
+        window.requestFileSystem(
+                     LocalFileSystem.PERSISTENT, 0, 
+                     function onFileSystemSuccess(fileSystem) {
+                     fileSystem.root.getFile(
+                                 "dummy.html", {create: true, exclusive: false}, 
+                                 function gotFileEntry(fileEntry){
+                                 var sPath = fileEntry.fullPath.replace("dummy.html","");
+                                 var fileTransfer = new FileTransfer();
+                                 fileEntry.remove();
+ 
+                                 fileTransfer.download(
+                                           "http://trainfit.acapellaapps.com/assets/uploads/trainee/E2OvtcP3so-1417271628.jpg",
+                                           sPath + "encode",
+                                           function(theFile) {
+                                           console.log("download complete: " + theFile.toURI());
+                                           showLink(theFile.toURI());
+                                           },
+                                           function(error) {
+                                           console.log("download error source " + error.source);
+                                           console.log("download error target " + error.target);
+                                           console.log("upload error code: " + error.code);
+                                           }
+                                           );
+                                 }, 
+                                 fail);
+                     }, 
+                     fail);
+ 
+    }
+ 
+    function showLink(url){
+        alert(url);
+        var divEl = document.getElementById("ready");
+        var aElem = document.createElement("a");
+        aElem.setAttribute("target", "_blank");
+        aElem.setAttribute("href", url);
+        aElem.appendChild(document.createTextNode("Ready! Click To Open."))
+        divEl.appendChild(aElem);
+ 
+    }
+ 
+ 
+    function fail(evt) {
+        console.log(evt.target.error.code);
+    }
+ 
+/* When this function is called, PhoneGap has been initialized and is ready to roll */
+/* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
+see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
+for more details -jm */
+function onDeviceReady()
+{
+// do your thing!
+        downloadFile();
+}
+ 
+    </script>
+  </head>
+  <body onload="onBodyLoad()">
+<h1>Hey, it's PhoneGap!</h1>
+<p>Don't know how to get started? Check out <em><a target="_blank" href="/http://www.phonegap.com/start">PhoneGap Start</a><em>
+</p>
+<br />
+    <p>
+        DOWNLOADING FILE...<br />
+        <span id="ready"></span>
+
+    </p>
+    <a href="index.html" title="">INDEX</a>
+  </body>
+</html> 

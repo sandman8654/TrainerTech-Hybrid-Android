@@ -1,0 +1,143 @@
+<ons-page class="center cont" ng-controller="checksession" >
+	<input type="hidden" id="resttime" value="0">
+	<div class="modal special" id="endtimebox" style="position:relative; display:none" >
+		<div class="block">
+			<header><img src="images/okey.png"></header>
+			<div class="container" ><p>Cool Down</p> <span  id="spendtime"></span></div>
+			<footer><a href="#" id="endGO" >Next</a></footer>
+		</div>
+	</div>
+
+	<div class="modal special" id="setendtimebox" style="position:relative; display:none" >
+		<div class="block">
+			<header><img src="images/okey.png"></header>
+			<div class="container" ><p>Cool Down</p> <span id="setspendtime0" class="timer0">00:00</span></div>
+			<footer>
+			<a href="#" id="nextsetGO" >Next</a> <br>
+			</footer>
+		</div>
+		<a href="#" id="nextsetskip" onclick="hidesetendtimebox()" >Skip</a>
+	</div>
+
+	<div class="modal special" id="cooldownmodal" style="position:relative; display:none">
+		<div class="block">
+			<header><img src="images/okey.png"></header>
+			<div class="container">
+			<p>Cool Down</p><span id="lasttime" class="timer0"></span></div>
+			<footer><a href="#" onclick="return show_finishedmodal()">Skip Cool Down</a></footer>
+		</div>
+		<a href="#" ng-click="ons.slidingMenu.setAbovePage('page4.html')">Quit Workout</a>
+	</div>
+
+	<div style="position: relative; display:none" id="finishedmodal" class="modal next">
+		<div class="block">
+			<header><img src="images/okey.png"></header>
+			<div class="container">
+				<div class="success">
+					<p>Success!</p>
+					<h3>You finished this round! <br> See you tomorrow</h3>
+				</div>									
+				<a style="margin:10px 18px;" id=""class="full blue returnhome homebtn0" href="#">Home</a>
+			</div>
+			<footer>
+				<h3>Notes (optional)</h3>
+				<input type="text" style="width:100%" placeholder="Notes to trainer here ...." id="workout_notes">
+			</footer>		
+		</div>
+		<a  class="returnhome" style="color:#0091ae"  href="#">Send Notes</a>
+
+		<input type="hidden" id="workout_iddd" value="0">
+
+	</div>
+
+	<ons-toolbar class="onstoolbar">
+		<div class="left navigation-bar__title navigation-bar__left cusername t-a-c">
+			<div class="navi t-a-c" ng-click="ons.slidingMenu.toggleMenu()" ><img src="images/menu.png"></div>	
+		</div>
+		<div class="center navigation-bar__center centerlogoimage t-a-c">
+				<h1><img src="images/trainer_half_white.png"></h1>
+		</div>
+		<div class="right navigation-bar__title navigation-bar__right t-a-c">
+			<!-- <span class="userfullname"></span> -->
+		</div>
+	</ons-toolbar>
+<div id="hideonmodal">
+
+	<div class="imagin">
+		<img id="excerciseimage" trr="images/img2.jpg">
+		<div class="ttl" id="exercisename">
+			
+		</div>
+	</div>
+
+	<div class="light" id="exercisedesc">  </div>
+
+	<div class="bench" id="exercise_set" style="margin-bottom:60px;padding-bottom:60px;" >
+		<!-- <ons-row class="lt">
+	        <ons-col>Set</ons-col>
+	        <ons-col>Weight</ons-col>	       
+	        <ons-col>Reps</ons-col>	       
+      	</ons-row> -->
+		
+	</div>
+
+	<div id="exercise_notes_div" style="display:none;" class="notes_trainer bench">
+		<ons-row class="lt">
+	        <ons-col>Notes to Trainer (Optional)</ons-col>       
+      	</ons-row>
+		<ons-row class="notes_trainer_textarea">
+			<!-- <textarea id="exercise_notes" placeholder="Type notes here"></textarea> -->
+
+			<input id="exercise_notes" type="text" style="width:100%;" placeholder="Type notes here">
+		</ons-row>
+	</div>
+
+	<div class="results left" id="results0" style="margin-bottom:50px; display:none;">
+		
+	</div>
+</div>
+</ons-page>
+<ons-tabbar id="tabbarbtm">
+<a href="#" class="full blue" id="backk_btn" style="background:#fff; color:#000; text-align:center; width:50%; float:left;" onclick="return false;">Back</a>
+<a href="#" class="full blue" id="nxtt_btn" style="text-align:center; width:50%; float:right;" onclick="return false;">Next</a>
+</ons-tabbar>
+
+<style type="text/css">
+	.results .col i {
+	    color: #037a92;
+	    font-style: normal;
+	}
+
+	.rset{
+		padding-left: 10px;
+		padding-top: 10px;
+	}
+
+	.counter a img{
+		width:34px;
+	}
+
+
+	.modal.next .counter a img{
+		width: 15px
+	}
+
+	.wrkpg .counter{
+		/*margin-left: -5px;*/
+	}
+
+	.modal.next .counter a{
+		margin: 0 11px;
+	}
+
+	.homebtn0{
+		background: none repeat scroll 0 0 #0091ae;
+	    border-radius: 10px;
+	    color: #ecf0f1;
+	    display: block;
+	    margin: 0 20px;
+	    padding: 10px 0;
+	    font-size:14px !important;
+	}	
+
+</style>

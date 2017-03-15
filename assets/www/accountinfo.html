@@ -1,0 +1,106 @@
+<ons-page class="center set" ng-controller="settingPage">
+
+	<input type="hidden" id="backButtonPageValue" value="1">
+
+	<!-- <header>
+		<span class="userfullname"></span>
+		<div class="navi"><img src="images/menu.png" ng-click="ons.slidingMenu.toggleMenu()"></div>
+		<h1><img src="images/logo-hd.png"></h1>
+	</header> -->
+
+	<ons-toolbar class="onstoolbar">
+		<div class="left navigation-bar__title navigation-bar__left cusername t-a-c">
+			<!-- <div class="navi t-a-c" ng-click="ons.slidingMenu.toggleMenu()" ><img src="images/menu.png" ></div>	 -->
+			<div class="navi t-a-c bckbtn" ng-click="ons.slidingMenu.setAbovePage('page11.html', {closeMenu: true})" >
+			<!-- <img src="images/menu.png" > -->
+			<a href="#" ng-click="ons.slidingMenu.setAbovePage('page11.html', {closeMenu: true})" ><span style="font-size:24px;"> < </span>Back</a>
+			</div>
+		</div>
+		<div class="center navigation-bar__center centerlogoimage t-a-c">
+				<h1><img src="images/trainer_half_white.png"></h1>
+		</div>
+		<div class="right navigation-bar__title navigation-bar__right t-a-c">
+			<!-- <span class="userfullname"></span> -->
+		</div>
+	</ons-toolbar>
+
+	<div class="settings">
+		<div class="user-inf">			
+			<!-- <span>Account Information</span> -->
+			<li><img id="proimage" > <a href="#" onclick="getPhoto();" >Edit</a></li>	
+			<input type="hidden" id="imgstr" value="">
+		</div>
+
+		<ul id="infoul" style="margin-bottom:60px">
+			<li>First name <br> <input type="text" id="ufname"></li>
+			<li>Last name <br> <input type="text" id="ulname"></li>
+			<li>Email <br> <input type="text" id="uemail"></li>
+			<li style="display:none">Address <br> <input type="text" id="uaddress" ></li>
+			<li style="display:none" >City <br> <input type="text" id="ucity" ></li>			
+			<li>Current Weight <br> 
+				<!-- <input type="text"  > -->
+				<select id="currentweight">
+					<option></option>
+				</select>
+			</li>
+			<li>Goal Weight <br> 
+			<!-- <input type="text" id="goalweight" > -->
+				<select id="goalweight">
+					<option></option>
+				</select>
+			</li>
+			<li>Height <br> <!-- <input type="text" id="height" > -->
+			<select id="height">	
+				<option></option>			
+			</select>
+			</li>
+			<!--li>Image <br> <input type="file" id="ulname" ></li-->
+			<input type="hidden" id="trainee_id">
+		</ul>
+		
+	</div>
+
+</ons-page>
+<ons-tabbar class="workouttabbar">
+<a class="full blue" href="#" onclick="return updateAccountInfo()" >Update</a>
+</ons-tabbar>
+
+<style type="text/css">
+	#infoul input{
+		width: 100%;
+		height: 30px;
+	}
+
+	#infoul{
+		font-size: 16px;
+		color: #fff;
+	}
+
+	#infoul button{
+		width: 100%;
+		height: 30px;
+		background: #0091ae;
+	}
+
+
+	#infoul select{
+	    height: 33px;
+	    width: 105%;
+	    background-color: #fff;
+	}
+
+	.bckbtn{
+		margin-top: 0px;
+		text-align:left;
+		/*margin-left:20px; */
+		color:#0091ae;
+		/*color:#fff;*/
+	}
+
+	.bckbtn a{
+		/*color:#fff;*/
+		color: #0091ae;
+		text-decoration: none;	
+	}
+
+</style>

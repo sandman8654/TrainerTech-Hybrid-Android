@@ -1,0 +1,41 @@
+<ons-page class="center calend" ng-controller="calendarpage" >
+
+	<!-- <header>
+		<span class="userfullname" ></span>
+		<div class="navi"><img src="images/menu.png" ng-click="ons.slidingMenu.toggleMenu()"></div>
+		<h1><img src="images/logo-hd.png"></h1>
+	</header> -->
+
+	<ons-toolbar class="onstoolbar">
+		<div class="left navigation-bar__title navigation-bar__left cusername t-a-c">
+			<div class="navi t-a-c" ng-click="ons.slidingMenu.toggleMenu()" ><img src="images/menu.png"></div>	
+		</div>
+		<div class="center navigation-bar__center centerlogoimage t-a-c">
+				<h1><img src="images/trainer_half_white.png"></h1>
+		</div>
+		<div class="right navigation-bar__title navigation-bar__right t-a-c">
+			<!-- <span class="userfullname"></span> -->
+		</div>
+	</ons-toolbar>
+
+	 <div ng-controller="MainController">
+	 	<div id="clndr" data-calendar toggle>Calendar will be display here</div>
+
+		 <a id="toggle_cal" href="#" onclick="close_calender();"><img src="images/ar-up.png" style="width:30px"></a>
+	</div>
+
+	 <ul class="tasks" id="caltasks">
+	 	<!--li>
+	 		<p>Today - Wednesday, July 9</p>
+	 		Squats, Push-Ups, 5 mile run
+	 	</li>
+	 	<li>
+	 		<p>Thursday, July 10</p>
+	 	</li>
+	 	<li>
+	 		<p>Friday, July 11</p>
+	 		Planks, Weights, Abs
+	 	</li -->
+	 </ul>
+
+</ons-page>

@@ -1,0 +1,103 @@
+<ons-page class="center set" ng-controller="checksession" >
+
+	<!-- <header>
+		<span class="userfullname"></span>
+		<div class="navi"><img src="images/menu.png" ng-click="ons.slidingMenu.toggleMenu()"></div>
+		<h1><img src="images/logo-hd.png"></h1>
+	</header> -->
+
+	<ons-toolbar class="onstoolbar">
+		<div class="left navigation-bar__title navigation-bar__left cusername t-a-c">
+			<!-- <div class="navi t-a-c" ng-click="ons.slidingMenu.toggleMenu()" ><img src="images/menu.png"></div>	 -->
+
+			<div class="navi t-a-c bckbtn" ng-click="ons.slidingMenu.setAbovePage('help.html', {closeMenu: true})" >
+			<!-- <img src="images/menu.png" > -->
+			<a href="#" ng-click="ons.slidingMenu.setAbovePage('help.html', {closeMenu: true})" ><span style="font-size:24px;"> < </span>Back</a>
+			</div>	
+
+		</div>
+		<div class="center navigation-bar__center centerlogoimage t-a-c">
+				<h1><img src="images/trainer_half_white.png"></h1>
+		</div>
+		<div class="right navigation-bar__title navigation-bar__right t-a-c">
+			<!-- <span class="userfullname"></span> -->
+		</div>
+	</ons-toolbar>
+
+	<!-- <div class="bckbtn" style="">
+		<a href="#" ng-click="ons.slidingMenu.setAbovePage('help.html', {closeMenu: true})" ><span style="font-size:24px;"> < </span>Back</a>
+	</div> -->
+
+	<div class="settings" >
+		<div class="user-inf" style="color:#0091ae; text-align:right" id="querydetails">
+			<!-- I need help!
+			<br>
+			Help me. I broke my back lifting. -->
+		</div>
+		
+		<ul id="replylist" style="color:#fff; padding-right:0px; padding-left:5%; height:300px; overflow:scroll;" >
+	      
+	      <!-- <li>
+	      	<div class="by_trainer">
+	      		Well that sucks.
+	      		<br>
+	      		<span>
+	      			Justin Trainer
+	      		</span>
+	      	</div>
+	      </li>
+
+	      <li>
+	      	<div class="by_trainee">
+	      		Ok but I broke my back lifting.
+	      	</div>
+	      </li> -->
+
+	      <!--  <li >
+		        <div style="width:80%">	       	
+			       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam <br>
+			       <span style="font-size:10px">Justin Trainer 1 Second ago</span>
+		       </div>
+	       </li>
+	        <li>
+	        	<div style="width:80%; float:right">
+			        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			        <br>
+			       <span style="font-size:10px">Justin Trainer 1 Second ago</span>
+	       		</div>
+	        </li> -->
+	    </ul>
+
+	    <input id="reply_input">
+
+	</div>
+
+	<input type="hidden" id="support_idd" value="0">
+
+</ons-page>
+
+<ons-tabbar class="workouttabbar">
+	<a class="full blue" href="javascript:void(0);" onclick="trainee_reply();">Reply</a>
+</ons-tabbar>
+
+<style type="text/css">
+	ons-toolbar + .page__content{
+		padding-top: 70px;
+	}
+
+	.bckbtn{
+		margin-top: 0px;
+		text-align:left;
+		/*margin-left:20px; */
+		color:#0091ae;
+		/*color:#fff;*/
+	}
+
+	.bckbtn a{
+		/*color:#fff;*/
+		color: #0091ae;
+		text-decoration: none;	
+	}
+
+</style>

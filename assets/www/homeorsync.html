@@ -1,0 +1,69 @@
+<ons-page class="center cont" id="wpg" ng-controller="homeorsync" >
+	<div class="modal" id="modalbox" style="position:fixed; display:none">
+		<div class="block">
+			<header>Timer</header>
+			<div class="container" id="timeval"></div>
+			<footer><a href="#" onclick="return hidebox();">Begin</a></footer>
+		</div>
+		<a href="#" onclick="return hidebox();">Cancel</a>
+	</div>
+	<!-- <header>
+		<span class="userfullname" ></span>
+		<div class="navi"><img src="images/menu.png" ng-click="ons.slidingMenu.toggleMenu()"></div>
+		<h1><img src="images/logo-hd.png"></h1>
+	</header> -->
+
+	<ons-toolbar class="onstoolbar">
+		<div class="left navigation-bar__title navigation-bar__left cusername t-a-c">
+			<div class="navi t-a-c" ng-click="ons.slidingMenu.toggleMenu()" ><img src="images/menu.png"></div>	
+		</div>
+		<div class="center navigation-bar__center centerlogoimage t-a-c">
+				<h1><img src="images/trainer_half_white.png"></h1>
+		</div>
+		<div class="right navigation-bar__title navigation-bar__right t-a-c">
+			<!-- <span class="userfullname"></span> -->
+		</div>
+	</ons-toolbar>
+
+	<div class="imagin" style="margin-top:20px">
+		<img  id="workoutimage" tr="images/img1.jpg">
+		<div class="ttl" id="wnamedate">
+			
+		</div>
+	</div>
+
+	<div class="light" id="wdescription"> </div>
+
+	<div class="tps" id="appendexercises" style="margin-bottom:50px">
+		
+		<!--<ons-row>
+	        <ons-col class="closed"><a href="#" ng-click="ons.slidingMenu.setAbovePage('page5.html')"><span>1</span>Warm Up</a></ons-col>
+	    	<ons-col><a href="#" ng-click="ons.slidingMenu.setAbovePage('page5.html')"><span>6</span>Incline Dumbbell Flies</a></ons-col>
+	    </ons-row>
+		<ons-row>
+	        <ons-col class="closed"><a href="#" ng-click="ons.slidingMenu.setAbovePage('page5.html')"><span>2</span>Stretch</a></ons-col>
+	    	<ons-col><a href="#" ng-click="ons.slidingMenu.setAbovePage('page5.html')"><span>7</span>Cable Flies</a></ons-col>
+	    </ons-row>
+		
+		<ons-row>
+	        <ons-col><a href="#" ng-click="ons.slidingMenu.setAbovePage('page5.html')"><span>3</span>Flat Bench</a></ons-col>
+	    	<ons-col><a href="#" ng-click="ons.slidingMenu.setAbovePage('page5.html')"><span>8</span>Cable Decline Flies</a></ons-col>
+	    </ons-row>
+		<ons-row>
+	        <ons-col><a href="#" ng-click="ons.slidingMenu.setAbovePage('page5.html')"><span>4</span>Incline</a></ons-col>
+	    	<ons-col><a href="#" ng-click="ons.slidingMenu.setAbovePage('page5.html')"><span>9</span>ABS</a></ons-col>
+	    </ons-row>
+		<ons-row>
+	        <ons-col><a href="#" ng-click="ons.slidingMenu.setAbovePage('page5.html')"><span>5</span>Decline</a></ons-col>
+	    	<ons-col><a href="#" ng-click="ons.slidingMenu.setAbovePage('page5.html')"><span>10</span>Cool Down</a></ons-col>
+	    </ons-row>-->
+    </div>
+
+
+
+</ons-page>
+<ons-tabbar class="workouttabbar">
+    <!-- <a href="#" class="full blue" id="workoutbtn" style="display:none" onclick="return showmodalbox();">Begin Workout</a> -->
+    <a href="#" class="full blue" id="workoutbtn" style="display:none">Begin Workout</a>
+    <a href="#" class="full blue" style="color:#000; background-color:#000" id="noworkoutbtn" style="display:none">B</a>
+</ons-tabbar>

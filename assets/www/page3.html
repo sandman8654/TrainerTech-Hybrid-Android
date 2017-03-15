@@ -1,0 +1,19 @@
+<ons-page class="center in">
+	<img src="images/trainer_full_white.png" ng-click="ons.slidingMenu.toggleMenu()">
+
+	<div class="bottom">
+		<form role="form">
+			<div class="input-group">
+				<input type="text" placeholder="First Name" id="sfname" style="border-bottom: 1px solid #838383">
+				<input type="text" placeholder="Last name" id="slname">
+				<input type="email" placeholder="Email Address" id="semail">
+				<input type="password" placeholder="Password" id="spass">
+			</div>
+			<ons-button modifier="large" onclick="return traineeSignup()">Sign Up</ons-button>
+		</form>
+		<a ng-click="ons.slidingMenu.setAbovePage('page2.html')" href="#" style="color:white; margin-top:0%" class="">Go Back</a>
+		<!-- <span class="ital">or</span> -->
+		<!-- <a href="#" class="face-b" ng-click="ons.slidingMenu.setAbovePage('page9.html')"><img src="images/fb.png">Sign in with Facebook</a> -->
+		<!-- <a href="#" class="twt" ng-click="ons.slidingMenu.setAbovePage('page9.html')"><img src="images/tw.png">Sign in with Twitter</a> -->
+	</div>
+</ons-page>

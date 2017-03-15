@@ -1,0 +1,466 @@
+<!DOCTYPE HTML>
+<html ng-app="MyApp" ng-controller="loginsession">
+<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<script src="components/loader.js"></script>
+		<link rel="stylesheet" href="components/loader.css">
+		
+		<script src="js/angular-touch.js"></script>
+		
+		<link rel="stylesheet" href="css/angular-carousel.css" />
+		<script src="js/angular-carousel.js"></script>
+		<script src="js/jquery-1.11.0.min.js"></script>
+
+		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+
+		<script src="js/login.js"></script>
+		<script src="js/timer.jquery.js"></script>
+
+		<script src="js/jquery.plugin.js"></script>
+		<script src="js/jquery.countdown.js"></script>
+		
+		<link rel="stylesheet" href="css/style.css">
+		
+		<script>
+
+				var currenttDatee = new Date();
+
+				window.localStorage.setItem('monthh', currenttDatee.getMonth() + 1);
+				window.localStorage.setItem('yearr', currenttDatee.getFullYear());
+
+				ons.bootstrap();
+				
+				var app = angular.module('MyApp', ['onsen.directives', 'angular-carousel']).directive('calendar', ['$compile', function ($compile) {
+				
+					var monthNames = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
+					var days = ['su', 'm', 't', 'w', 'th', 'f', 's'];
+				
+					var isLeapYear = function (year) {
+						return ((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0);
+					};
+				
+					var daysInMonth = function (date) {
+						return [31, (isLeapYear(date.getYear()) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][date.getMonth()];
+					};
+				
+					var formatDateHeading = function (date) {
+						var m = monthNames[date.getMonth()];
+						return m.charAt(0).toUpperCase() + m.slice(1) + ' ' + date.getFullYear();
+					};
+				
+					var currentDate = new Date();
+
+					function getTemplate(month, year, dates) {
+						
+						month = window.localStorage.getItem('monthh');
+						year = window.localStorage.getItem('yearr');
+
+						var month = ((isNaN(month) || month == null) ? currentDate.getMonth() + 1 : month) - 1,
+							year = (isNaN(year) || year == null) ? currentDate.getFullYear() : year,
+							firstDay = new Date(year, month, 1),
+							startDay = firstDay.getDay(),
+							monthLength = daysInMonth(firstDay),
+							heading = formatDateHeading(firstDay);
+				
+						if (!dates || !dates.length) dates = [currentDate.getDate()];
+				
+						var tpl = [
+			              '<div class="cal" style="height:400px;">',
+			              '<table class="cal">',
+			              '<tr> <th> <a id="p_month_btn" href="javascript:void(0);" onclick="return false;" style="opacity:0.1;" > <img src="images/al.png" style="width: 15px;"> </a> </th> <th colspan="5">' + heading + '</th> <th> <a href="javascript:void(0);" id="n_month_btn" onclick="return false;" style="opacity:0.1;" > <img src="images/ar.png" style="width: 15px;"> </a> </th> </tr>',
+			              '<tr>'];
+			        
+			            days.forEach(function (day) {
+			              tpl.push('<td class="cal-head">' + day.toUpperCase() + '</td>');
+			            });
+			            tpl.push('</tr>');
+				
+						var day = 1,
+							rows = Math.ceil((monthLength + startDay) / 7);
+				
+						for (i = 0; i < rows; i++) {
+							var row = ['<tr>'];
+							for (j = 0; j < 7; j++) {
+								row.push('<td>');
+								if (day <= monthLength && (i > 0 || j >= startDay)) {
+									if (dates.indexOf(day) != -1) row.push('<div class="cal-day cal-highlight" data-cal="' + year + '/' + month + '/' + day + '">');
+									if (dates.indexOf(day) == -1) row.push('<div class="cal-day" data-cal="' + year + '/' + month + '/' + day + '">');
+									row.push(day + '</div>');
+									day++;
+								}
+								row.push('</td>');
+							}
+							row.push('</tr>');
+							tpl.push(row.join(''));
+						}
+						tpl.push('</table></div>');
+				
+						return tpl.join('');
+					}
+				
+					return {
+						restrict: 'A',
+						replace: true,
+						link: function ($scope, $element, attrs) {
+							$element.html(getTemplate(parseInt(attrs.month), parseInt(attrs.year), []));
+							$compile($element.contents());
+						}
+					};
+				}]);
+				
+				angular.module("MyApp")
+				.controller('MainController', function($scope) {
+						$scope.toggle = function() {
+								$scope.$broadcast('event:toggle');
+						}
+				})
+				.directive('toggle', function() {
+						return function(scope, elem, attrs) {
+								scope.$on('event:toggle', function() {
+										elem.toggleClass('asd');
+								});
+						};
+				});
+
+				angular.module("MyApp")
+				.controller('checksession', function($scope, $location){
+					var loginsession = window.localStorage.getItem("userlogin");
+						if(!loginsession){              
+							$('#backtologin').trigger('click');              
+						}else{
+							//$('#ontourpage').trigger('click');              
+							setUserFullName();            
+						}
+				});
+
+
+				angular.module("MyApp")
+				.controller('tourslider', function($scope, $location){
+					var loginsession = window.localStorage.getItem("userlogin");
+						if(!loginsession){              
+							$('#backtologin').trigger('click');              
+						}else{
+							//$('#ontourpage').trigger('click');
+							settourslider();
+							setUserFullName();            
+						}
+				});
+
+
+				angular.module("MyApp")
+				.controller('loginsession', function($scope, $location){          
+					setInterval(function(){            
+						var loginsession = window.localStorage.getItem("userlogin");
+						if(!loginsession){              
+							//$('#backtologin').trigger('click');
+							$('.hideonlogin').show();
+							$('.showonlogin').hide();             
+						}else{
+							$('.hideonlogin').hide();
+							$('.showonlogin').show();
+							setUserFullName();            
+						}
+					}, 100);
+				});
+
+
+				 angular.module("MyApp")
+				.controller('settingPage', function($scope, $location){
+					var loginsession = window.localStorage.getItem("userlogin");
+						if(!loginsession){              
+							$('#backtologin').trigger('click');              
+						}else{
+							setAccountInfo();            
+						}
+				});
+
+				angular.module("MyApp")
+				.controller('calendarpage', function($scope, $location){
+					var loginsession = window.localStorage.getItem("userlogin");
+						if(!loginsession){              
+							$('#backtologin').trigger('click');              
+						}else{
+							setCalendarPage();            
+						}
+				});
+
+
+				angular.module("MyApp")
+				.controller('workoutpage', function($scope, $location){
+					var loginsession = window.localStorage.getItem("userlogin");
+						if(!loginsession){              
+							$('#backtologin').trigger('click');              
+						}else{
+							setUserFullName();
+							setWorkout();            
+						}
+				});
+
+				angular.module("MyApp")
+				.controller('homeorsync', function($scope, $location){
+					var loginsession = window.localStorage.getItem("userlogin");
+						if(!loginsession){              
+							$('#backtologin').trigger('click');              
+						}else{
+							setUserFullName();
+							setWorkout();
+
+							setTimeout(function(){
+								if(isOnline()){
+									// $("ul.topcoat-list").hide();
+									// $("#onsyncpage").trigger('click');
+									sync_dbHidden();
+								}
+							},1000);
+						}
+				});
+
+				angular.module("MyApp")
+				.controller('syncpage', function($scope, $location){
+					// $("ul.topcoat-list").hide();
+					sync_db();
+				});
+
+				angular.module("MyApp")
+				.controller('islogin', function($scope, $location){
+					var loginsession = window.localStorage.getItem("userlogin");
+						if(loginsession){              
+							setTimeout(function(){
+								//alert(loginsession);
+								// $('#ontourpage').trigger('click');
+								// $('#clicktoreturn').trigger('click');
+								$('#clicktoreturnorsync').trigger('click');
+							},500);
+						}
+				});
+
+
+				 angular.module("MyApp")
+				.controller('helppage', function($scope, $location){
+					var loginsession = window.localStorage.getItem("userlogin");
+						if(!loginsession){              
+							$('#backtologin').trigger('click');              
+						}else{
+							setHelppage();            
+						}
+				});
+
+
+				function offslide(){
+					//getSlidingMenu().setSlidingEnabled(false);
+				}       
+
+		</script>
+
+		<script type="text/javascript" charset="utf-8">
+			var db;
+			// var no_image = './images/load_image.gif';
+			var no_image = './images/no_image.png';
+
+			var pictureSource;
+			var destinationType;
+
+			document.addEventListener("deviceready",onDeviceReady,false);
+
+			function onDeviceReady() {
+				document.addEventListener("backbutton", onBackKeyDown, false);
+				
+				window.localStorage.setItem('nowOnline', '0');
+				pictureSource=navigator.camera.PictureSourceType;
+				destinationType=navigator.camera.DestinationType;
+				if(navigator.network && navigator.network.connection.type != Connection.NONE){
+					window.localStorage.setItem('online', '1');
+				}
+				else{
+					window.localStorage.setItem('online', '0');
+				}
+
+				document.addEventListener("online", onOnline, false);
+				document.addEventListener("offline", onOffline, false);
+				startupdb();
+
+				setInterval(function(){
+					if(window.localStorage.getItem('nowOnline') == '1'){
+						window.localStorage.setItem('nowOnline', '0');
+						sync_dbHidden();
+					}
+				},10);
+			}
+
+			function onOnline(){
+				window.localStorage.setItem('nowOnline', '1');
+				window.localStorage.setItem('online', '1');
+			}
+
+			function onOffline(){
+				window.localStorage.setItem('online', '0');
+			}
+
+			function onPhotoURISuccess(imageURI) {
+				var largeImage = document.getElementById('proimage');
+				$('#imgstr').val(imageURI);
+				largeImage.style.display = 'block';
+				largeImage.src = "data:image/jpeg;base64," + imageURI;
+			}
+
+			function getPhoto() {
+				var source = pictureSource.PHOTOLIBRARY;
+				navigator.camera.getPicture(onPhotoURISuccess, onFail, {
+					quality: 50,
+					destinationType: destinationType.DATA_URL,
+					sourceType: source,
+					allowEdit: true,
+					encodingType: Camera.EncodingType.JPEG
+				});
+			}
+
+			function onFail(message) {
+				showAlert('Failed because: ' + message);
+			}
+			
+			function onBackKeyDown(event) {
+				var backButtonPageValue = $("#backButtonPageValue").val();
+				if(backButtonPageValue){
+					switch(backButtonPageValue){
+						case '1' : 	ons.slidingMenu.setAbovePage('page11.html', {closeMenu: true});
+									event.prevenDeault();
+									break;
+
+						case '2' : 	ons.slidingMenu.setAbovePage('help.html', {closeMenu: true});
+									event.prevenDeault();
+									break;
+
+						case '3' : 	ons.slidingMenu.setAbovePage('page2.html', {closeMenu: true});
+									event.prevenDeault();
+									break;
+
+						case '4' : 	ons.slidingMenu.setAbovePage('page11.html', {closeMenu: true});
+									event.prevenDeault();
+									break;
+
+						case '5' : 	ons.slidingMenu.setAbovePage('page2.html', {closeMenu: true});
+									event.prevenDeault();
+									break;
+
+						case '777' : hideLoader();
+									$("#clicktoreturn").trigger('click');
+									event.prevenDeault();
+									break;
+
+						case '888' : 	ons.slidingMenu.setAbovePage('page4.html', {closeMenu: true});
+									event.prevenDeault();
+									break;
+
+						case '999' : 
+									break;
+					}
+				}
+			}
+		</script>
+<style type="text/css">
+	.navi{
+		float: none;
+		/*margin: 10px 0;*/
+	}
+
+	.cusername{
+		padding-left: 10px;
+	}
+
+	.centerlogoimage h1{
+		margin-top: 5px;
+		margin-bottom: 0px;
+	}
+
+	.workouttabbar .tab-bar a{
+		text-align: center;
+	}
+
+	.tab-bar{
+		border-top: none;
+	}
+
+	.settings ul{
+		padding-right:35px; 
+	}
+
+	.ons-tab-bar__content{
+		position: inherit;
+	}
+
+	.imagin{
+		margin-top:20px
+	}
+</style>
+
+</head>
+<body>
+<p class="timer0" style="display:none"></p>
+<input type="hidden" id="istime" value="0">  
+
+  <!--div style="height:20px; background-color:#fff; position:absolute; width:100%"> test</div-->
+    <a id="clicktoreturn" style="display:none" onclick="ons.slidingMenu.setAbovePage('page4.html', {closeMenu: true})">
+      Workout
+    </a>
+
+    <!-- 
+    <a id="clicktoreturnorsync" style="display:none" onclick="ons.slidingMenu.setAbovePage('homeorsync.html', {closeMenu: true})">
+      Workout OR Sync
+    </a>
+    -->
+
+    <a id="clicktoreturnorsync" style="display:none" onclick="ons.slidingMenu.setAbovePage('page8.html', {closeMenu: true})">
+      Workout OR Sync
+    </a>
+
+    <a id="pnworkoutpage" style="display:none" onclick="ons.slidingMenu.setAbovePage('pn_workout.html', {closeMenu: true})">
+      prev next Workout
+    </a>
+
+    <a id="onquerypage" style="display:none" onclick="ons.slidingMenu.setAbovePage('query.html', {closeMenu: true})">
+      query
+    </a>
+
+    <a id="onhelppage" style="display:none" onclick="ons.slidingMenu.setAbovePage('help.html', {closeMenu: true})">
+      help
+    </a>
+
+    <a id="backtologin" style="display:none" onclick="ons.slidingMenu.setAbovePage('page2.html', {closeMenu: true})">
+      Log In
+    </a>
+
+    <a id="ontourpage" style="display:none" onclick="ons.slidingMenu.setAbovePage('page9.html', {closeMenu: true})">
+      Tour page
+    </a>
+
+    <a id="onsyncpage" style="display:none" onclick="ons.slidingMenu.setAbovePage('sync.html', {closeMenu: true})">
+      Sync page
+    </a>
+
+    <!--  <a id="oncalpage" style="display:none" onclick="ons.slidingMenu.setAbovePage('page8.html', {closeMenu: true})">
+      calendar
+    </a> -->
+
+    <a id="oncalpage" style="display:none" onclick="ons.slidingMenu.setAbovePage('page8.html', {closeMenu: true})">
+      calendar
+    </a>
+
+    <a id="onexersicedetail" style="display:none" onclick="ons.slidingMenu.setAbovePage('page5.html', {closeMenu: true})">
+      Exercise Detail
+    </a>
+
+    <a id="onoldexersicedetail" style="display:none" onclick="ons.slidingMenu.setAbovePage('oldpage5.html', {closeMenu: true})">
+      Old Exercise Detail
+    </a>
+    
+		<ons-sliding-menu var="app.slidingMenu" menu-page="menu.html" main-page="page2.html" side="left" max-slide-distance="80%">
+		</ons-sliding-menu>    
+		<!--max-slide-distance="80%"-->
+</body>
+	<script src="js/db.js"></script>
+	<script src="js/dbHidden.js"></script>
+	<script src="js/php/strtotime.js"></script>
+	<script src="js/php/date.js"></script>
+</html> 

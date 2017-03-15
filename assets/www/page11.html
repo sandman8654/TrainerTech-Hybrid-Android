@@ -1,0 +1,37 @@
+<ons-page class="center set" ng-controller="settingPage" >
+
+	<!-- <header>
+		<span class="userfullname"></span>
+		<div class="navi"><img src="images/menu.png" ng-click="ons.slidingMenu.toggleMenu()"></div>
+		<h1><img src="images/logo-hd.png"></h1>
+	</header> -->
+
+	<ons-toolbar class="onstoolbar">
+		<div class="left navigation-bar__title navigation-bar__left cusername t-a-c">
+			<div class="navi t-a-c" ng-click="ons.slidingMenu.toggleMenu()" ><img src="images/menu.png"></div>	
+		</div>
+		<div class="center navigation-bar__center centerlogoimage t-a-c">
+				<h1><img src="images/trainer_half_white.png"></h1>
+		</div>
+		<div class="right navigation-bar__title navigation-bar__right t-a-c">
+			<!-- <span class="userfullname"></span> -->
+		</div>
+	</ons-toolbar>
+
+	<div class="settings">
+		<div class="user-inf">
+			<img id="proimage" rc="images/ava.png">
+			<span class="userfullname" ><!--Andrea Smith<br><small>Member Since 2013</small>--></span>
+		</div>
+		<ul>
+	        <li><a href="#" ng-click="ons.slidingMenu.setAbovePage('accountinfo.html')"  >Account Information<img src="images/listaee.png"></a></li>
+	        <!-- <li><a href="#">Preferences<img src="images/listaee.png"></a></li> -->
+	        
+	        <!--
+	        <li><a href="#" ng-click="ons.slidingMenu.setAbovePage('help.html')" >Help<img src="images/listaee.png"></a></li>
+			-->
+
+	    </ul>
+	</div>
+
+</ons-page>

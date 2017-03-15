@@ -1,0 +1,35 @@
+<ons-page class="center cont" id="wpg" ng-controller="syncpage" >
+	
+	<input type="hidden" id="backButtonPageValue" value="777">
+
+	<input type="hidden" id="request_send" value="SEND">
+	<input type="hidden" id="request_get" value="GET">
+	<input type="hidden" id="table_data_send" value="SEND">
+	<input type="hidden" id="table_data_get" value="GET">
+
+
+	<input type="hidden" id="closeSync" value="TRUE">
+
+
+	<ons-toolbar class="onstoolbar">
+		<div class="left navigation-bar__title navigation-bar__left cusername t-a-c" style="opacity:0;">
+			<div class="navi t-a-c" ng-click="ons.slidingMenu.toggleMenu()" ><img src="images/menu.png"></div>	
+		</div>
+		<div class="center navigation-bar__center centerlogoimage t-a-c">
+				<h1><img src="images/trainer_half_white.png"></h1>
+		</div>
+		<div class="right navigation-bar__title navigation-bar__right t-a-c">
+			<!-- <span class="userfullname"></span> -->
+		</div>
+	</ons-toolbar>
+
+	<div class="imagin" style="margin-top:20px">
+		<img  id="workoutimage" tr="images/img1.jpg">
+	</div>
+
+	<div class="light" id="wdescription">
+		<p id="syncPercent2" style="font-weight:bold;width:100%; color:#0091AE; text-align:center;">Loading Data : 0%</p>
+		<p id="syncPercent" style="font-weight:bold;width:100%; color:#0091AE; text-align:center;"></p>
+	</div>
+
+</ons-page>

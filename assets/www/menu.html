@@ -1,0 +1,166 @@
+<ons-page style="background: url(images/menubg.jpg); background-size:  100% 100%;">
+    <div class="logo"><img src="images/trainer_full_white.png"></div>
+	<ul class="topcoat-list">
+		<ons-list-item 
+			class="hideonloginn topcoat-list__item--tappable topcoat-list__item__line-height" 
+			ng-click="ons.slidingMenu.toggleMenu(); 
+			ons.slidingMenu.setAbovePage('page2.html')" style="display:none;">
+			Log In
+		</ons-list-item>
+		<ons-list-item 
+			class="hideonloginn topcoat-list__item--tappable topcoat-list__item__line-height"
+			ng-click="ons.slidingMenu.toggleMenu(); 
+			ons.slidingMenu.setAbovePage('page3.html')" style="display:none;">
+			Sign Up
+		</ons-list-item>
+
+		<!--
+		<ons-list-item 
+			class="showonlogin topcoat-list__item--tappable topcoat-list__item__line-height"
+			ng-click="ons.slidingMenu.toggleMenu(); 
+			ons.slidingMenu.setAbovePage('page4.html')">
+			Home
+		</ons-list-item>
+		-->
+
+		<!--
+		<ons-list-item 
+			class="showonlogin topcoat-list__item--tappable topcoat-list__item__line-height"
+			ng-click="ons.slidingMenu.toggleMenu(); 
+			ons.slidingMenu.setAbovePage('page8.html')">
+			Home
+		</ons-list-item>
+		-->
+
+		<ons-list-item 
+			class="showonlogin topcoat-list__item--tappable topcoat-list__item__line-height"
+			onclick="set_today_date();">
+			Home
+		</ons-list-item>
+
+		<!--
+		<ons-list-item 
+			class="showonlogin topcoat-list__item--tappable topcoat-list__item__line-height"
+			onclick="set_today_date();"  >
+			Calendar
+		</ons-list-item>
+		-->
+
+		<ons-list-item 
+			class="showonlogin topcoat-list__item--tappable topcoat-list__item__line-height"
+			ng-click="ons.slidingMenu.toggleMenu(); 
+			ons.slidingMenu.setAbovePage('page4.html')">
+			Today's Workout
+		</ons-list-item>
+
+		<ons-list-item 
+			class="showonlogin topcoat-list__item--tappable topcoat-list__item__line-height"
+			ng-click="ons.slidingMenu.toggleMenu(); 
+			ons.slidingMenu.setAbovePage('page11.html')">
+			Settings
+		</ons-list-item>
+
+		<ons-list-item 
+			class="showonlogin topcoat-list__item--tappable topcoat-list__item__line-height"
+			ng-click="ons.slidingMenu.toggleMenu(); 
+			ons.slidingMenu.setAbovePage('help.html')">
+			Help
+		</ons-list-item>
+
+		<ons-list-item 
+			class="showonlogin  topcoat-list__item--tappable topcoat-list__item__line-height"
+			ng-click="ons.slidingMenu.toggleMenu(); 
+			ons.slidingMenu.setAbovePage('sync.html')">
+			Load Workouts
+		</ons-list-item>
+
+		<ons-list-item 
+			class="showonlogin topcoat-list__item--tappable topcoat-list__item__line-height"
+			ng-click="ons.slidingMenu.toggleMenu(); 
+			ons.slidingMenu.setAbovePage('page9.html')">
+			Tour
+		</ons-list-item>
+		
+
+		<ons-list-item 
+			class="showonlogin  topcoat-list__item--tappable topcoat-list__item__line-height"
+			onclick="ons.slidingMenu.toggleMenu(); loggedout();">
+			Log Out
+		</ons-list-item>
+		
+
+		
+
+		<!--
+		<ons-list-item
+			class="topcoat-list__item--tappable topcoat-list__item__line-height" 
+			ng-click="ons.slidingMenu.toggleMenu(); 
+			ons.slidingMenu.setAbovePage('page2.html')">
+			Log In
+		</ons-list-item>
+
+		<ons-list-item 
+			class="topcoat-list__item--tappable topcoat-list__item__line-height"
+			ng-click="ons.slidingMenu.toggleMenu(); 
+			ons.slidingMenu.setAbovePage('page3.html')">
+			Sign Up
+		</ons-list-item>
+
+		<ons-list-item 
+			class="topcoat-list__item--tappable topcoat-list__item__line-height"
+			ng-click="ons.slidingMenu.toggleMenu(); 
+			ons.slidingMenu.setAbovePage('page10.html')">
+			Sign Up v2
+		</ons-list-item>
+
+		<ons-list-item 
+			class="topcoat-list__item--tappable topcoat-list__item__line-height"
+			ng-click="ons.slidingMenu.toggleMenu(); 
+			ons.slidingMenu.setAbovePage('page4.html')">
+			Chest
+		</ons-list-item>
+
+		<ons-list-item 
+			class="topcoat-list__item--tappable topcoat-list__item__line-height"
+			ng-click="ons.slidingMenu.toggleMenu(); 
+			ons.slidingMenu.setAbovePage('page5.html')">
+			Flat Bench
+		</ons-list-item>
+
+		<ons-list-item 
+			class="topcoat-list__item--tappable topcoat-list__item__line-height"
+			ng-click="ons.slidingMenu.toggleMenu(); 
+			ons.slidingMenu.setAbovePage('page7.html')">
+			Begin in
+		</ons-list-item>
+
+		<ons-list-item 
+			class="topcoat-list__item--tappable topcoat-list__item__line-height"
+			ng-click="ons.slidingMenu.toggleMenu(); 
+			ons.slidingMenu.setAbovePage('page8.html')">
+			Calendar
+		</ons-list-item>
+
+		<ons-list-item 
+			class="topcoat-list__item--tappable topcoat-list__item__line-height"
+			ng-click="ons.slidingMenu.toggleMenu(); 
+			ons.slidingMenu.setAbovePage('page9.html')">
+			Tour
+		</ons-list-item>
+
+		<ons-list-item 
+			class="topcoat-list__item--tappable topcoat-list__item__line-height"
+			ng-click="ons.slidingMenu.toggleMenu(); 
+			ons.slidingMenu.setAbovePage('page11.html')">
+			Settings
+		</ons-list-item>
+
+		<ons-list-item 
+			class="topcoat-list__item--tappable topcoat-list__item__line-height"
+			onclick="ons.slidingMenu.toggleMenu(); loggedout();">
+			Log Out
+		</ons-list-item>-->
+
+	</ul>
+
+</ons-page>

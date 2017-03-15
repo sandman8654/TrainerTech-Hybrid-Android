@@ -1,0 +1,18 @@
+<ons-page class="center in">
+	<img src="images/logo-sm.png" ng-click="ons.slidingMenu.toggleMenu()">
+
+	<div class="bottom">
+		<form role="form">
+			<div class="input-group">
+				<input type="text" placeholder="First Name" id="sfname">
+				<input type="text" placeholder="Last name" id="slname">
+				<input type="email" placeholder="Email Address" id="semail">
+				<input type="password" placeholder="Password" id="spass">
+			</div>
+			<ons-button modifier="large" onclick="return traineeSignup()">Sign Up</ons-button>
+		</form>
+		<span>or</span>
+		<a href="#" class="face-b n-t" ng-click="ons.slidingMenu.setAbovePage('page9.html')"><img src="images/fb.png"></a>
+		<a href="#" class="twt n-t" ng-click="ons.slidingMenu.setAbovePage('page9.html')"><img src="images/tw.png"></a>
+	</div>
+</ons-page>

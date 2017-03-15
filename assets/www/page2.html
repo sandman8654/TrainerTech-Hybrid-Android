@@ -1,0 +1,20 @@
+<ons-page class="center in" ng-controller="islogin" >
+    <img src="images/trainer_full_white.png" ng-click="ons.slidingMenu.toggleMenu()">
+
+    <input type="hidden" id="closeSliding" value="TRUE">
+
+	<div class="bottom fortybottom">
+		<form role="form">
+			<div class="input-group">
+				<input type="text" id="loginemail" placeholder="Email" value="">
+				<input type="password" id="loginpass" placeholder="Password" value="">
+			</div>
+			<!-- <a href="#" ng-click="ons.slidingMenu.setAbovePage('page3.html')">Sign Up</a> -->
+			<button style="width:100%;" onclick='return loggingIn()' >Log In</button>
+			<!--button ng-click="ons.slidingMenu.setAbovePage('page9.html')">Log In</button-->
+		</form>
+		<a href="#" style="margin-top:90px;" onclick="ons.slidingMenu.setAbovePage('forgetpassword.html', {closeMenu: true})" >Forget password?</a>
+		<!--a href="#" ng-click="ons.slidingMenu.setAbovePage('page9.html')">Skip sign up for now.</a-->
+	</div>
+</ons-page>
+

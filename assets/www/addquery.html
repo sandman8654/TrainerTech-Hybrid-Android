@@ -1,0 +1,86 @@
+<ons-page class="center set" ng-controller="checksession">
+
+	<input type="hidden" id="backButtonPageValue" value="2">
+
+	<!-- <header>
+		<span class="userfullname"></span>
+		<div class="navi"><img src="images/menu.png" ng-click="ons.slidingMenu.toggleMenu()"></div>
+		<h1><img src="images/logo-hd.png"></h1>
+	</header> -->
+
+	<ons-toolbar class="onstoolbar">
+		<div class="left navigation-bar__title navigation-bar__left cusername t-a-c">
+			<!-- <div class="navi t-a-c" ng-click="ons.slidingMenu.toggleMenu()" ><img src="images/menu.png"></div>	 -->
+
+			<div class="navi t-a-c bckbtn" ng-click="ons.slidingMenu.setAbovePage('help.html', {closeMenu: true})" >
+			<!-- <img src="images/menu.png" > -->
+			<a href="#" ng-click="ons.slidingMenu.setAbovePage('help.html', {closeMenu: true})" ><span style="font-size:24px;"> < </span>Back</a>
+			</div>	
+
+		</div>
+		<div class="center navigation-bar__center centerlogoimage t-a-c">
+				<h1><img src="images/trainer_half_white.png"></h1>
+		</div>
+		<div class="right navigation-bar__title navigation-bar__right t-a-c">
+			<!-- <span class="userfullname"></span> -->
+		</div>
+	</ons-toolbar>
+
+	<div class="settings">
+		<div class="user-inf">			
+			<!-- <span>Add Query</span> -->
+			<!-- <li><img id="proimage" ></li>	 -->
+		</div>
+
+		<ul id="infoul" style="margin-bottom:60px">
+			<li>Subject <br> <input type="text" id="qsub"></li>
+			<li>Message <br> <input type="text" id="qmsg"></li>		
+			<!--li>Image <br> <input type="file" id="ulname" ></li-->
+			<input type="hidden" id="trainee_id">
+		</ul>
+		
+	</div>
+
+</ons-page>
+<ons-tabbar class="workouttabbar">
+<a class="full blue" href="#" onclick="return addQuery()" >Add</a>
+</ons-tabbar>
+
+<style type="text/css">
+	#infoul input{
+		width: 100%;
+		height: 30px;
+	}
+
+	#infoul{
+		font-size: 16px;
+		color: #fff;
+	}
+
+	#infoul button{
+		width: 100%;
+		height: 30px;
+		background: #0091ae;
+	}
+</style>
+
+<style type="text/css">
+	ons-toolbar + .page__content{
+		padding-top: 70px;
+	}
+
+	.bckbtn{
+		margin-top: 0px;
+		text-align:left;
+		/*margin-left:20px; */
+		color:#0091ae;
+		/*color:#fff;*/
+	}
+
+	.bckbtn a{
+		/*color:#fff;*/
+		color: #0091ae;
+		text-decoration: none;	
+	}
+
+</style>
