@@ -1,2 +1,2 @@
 # TrainerTech-Hybrid-Android
-This fitness app was built by Ionic framework
+This fitness app was built by Phonegap framework
